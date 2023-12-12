@@ -16,4 +16,10 @@ html {
 }
 button:focus {
     outline: none;
-}`;
+}
+button{
+    padding:0;
+    border-radius: 0;
+    border:none;
+}
+`;
