@@ -18,5 +18,4 @@ export default App;
 
 const ShoppingBasket = styled.div`
     width: 100vw;
-    padding-top: 1.2rem;
 `;

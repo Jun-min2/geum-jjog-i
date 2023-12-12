@@ -13,4 +13,7 @@ html {
 }
 * {
     box-sizing: border-box;
+}
+button:focus {
+    outline: none;
 }`;
