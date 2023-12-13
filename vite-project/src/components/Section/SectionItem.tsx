@@ -1,41 +1,49 @@
 import styled from 'styled-components';
 import { ITEMDETAILS } from '../../constants/ItemDetails';
 import { IcMinus, IcPlus, IcSmallCheck } from '../../assets/svgs/icons';
-const SectionItem = () => {
+import { useState } from 'react';
+
+const SectionItem = ({ item }) => {
+    const [quantity, setQuantity] = useState(1);
+    const handleOnDecrease = () => {
+        setQuantity(quantity - 1);
+    };
+    const handleOnIncrease = () => {
+        setQuantity(quantity + 1);
+    };
+
     return (
         <>
-            {ITEMDETAILS.map(({ itemImages, itemText, itemCost, itemDiscountPrice }) => (
-                <MyItem>
-                    <ItemWrapper key={itemImages}>
-                        <Items>
-                            <ItemPic>
-                                <CheckButton>
-                                    <IcSmallCheck />
-                                </CheckButton>
-                                <ItemImg src={itemImages} />
-                            </ItemPic>
-                            <ItemDetails>{itemText}</ItemDetails>
-                        </Items>
+            <MyItem>
+                <ItemWrapper>
+                    <Items>
+                        <ItemPic>
+                            <CheckButton>
+                                <IcSmallCheck />
+                            </CheckButton>
+                            <ItemImg src={item.itemImages} />
+                        </ItemPic>
+                        <ItemDetails>{item.itemText}</ItemDetails>
+                    </Items>
 
-                        <ItemCounter>
-                            <MinusCount>
-                                <IcMinus />
-                            </MinusCount>
-                            <ItemCount>1</ItemCount>
-                            <PlusCount>
-                                <IcPlus />
-                            </PlusCount>
-                        </ItemCounter>
-                    </ItemWrapper>
-                    <ItemLayout>
-                        <FastItem>오늘드림</FastItem>
-                        <ItemPrice>
-                            <ItemCost>{itemCost}</ItemCost>
-                            <DiscountPrice>{itemDiscountPrice}</DiscountPrice>
-                        </ItemPrice>
-                    </ItemLayout>
-                </MyItem>
-            ))}
+                    <ItemCounter>
+                        <MinusCount onClick={handleOnDecrease}>
+                            <IcMinus />
+                        </MinusCount>
+                        <ItemCount>{quantity}</ItemCount>
+                        <PlusCount onClick={handleOnIncrease}>
+                            <IcPlus />
+                        </PlusCount>
+                    </ItemCounter>
+                </ItemWrapper>
+                <ItemLayout>
+                    <FastItem>오늘드림</FastItem>
+                    <ItemPrice>
+                        <ItemCost>{item.itemCost}</ItemCost>
+                        <DiscountPrice>{item.itemDiscountPrice}</DiscountPrice>
+                    </ItemPrice>
+                </ItemLayout>
+            </MyItem>
         </>
     );
 };

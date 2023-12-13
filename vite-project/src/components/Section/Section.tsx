@@ -1,3 +1,4 @@
+import { ITEMDETAILS } from '../../constants/ItemDetails';
 import SectionBody from './SectionBody';
 import SectionHeader from './SectionHeader';
 import SectionItem from './SectionItem';
@@ -7,7 +8,9 @@ const Section = () => {
         <>
             <SectionHeader />
             <SectionBody />
-            <SectionItem />
+            {ITEMDETAILS.map((item, idx) => (
+                <SectionItem key={idx} item={item} />
+            ))}
         </>
     );
 };
