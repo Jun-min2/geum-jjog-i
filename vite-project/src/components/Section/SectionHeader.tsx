@@ -24,7 +24,7 @@ const SectionHeader = () => {
 
 export default SectionHeader;
 
-const HeadTextLayout = styled.div`
+const HeadTextLayout = styled.section`
     width: 100%;
     height: 3.2rem;
 
