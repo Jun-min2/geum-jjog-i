@@ -23,14 +23,17 @@ const Head = styled.header`
     width: 100%;
     display: flex;
     justify-content: space-between;
-    padding-bottom: 1.2rem;
+    box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.03);
 
     text-align: center;
 `;
 const HeadTextWrapper = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     ${({ theme }) => theme.fonts.SubHead2};
     color: black;
-    padding-top: 1.2rem;
 `;
 const HeadTextBox = styled.span`
     ${({ theme }) => theme.fonts.SubHead2};
