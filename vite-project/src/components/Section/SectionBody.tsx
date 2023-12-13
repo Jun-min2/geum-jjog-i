@@ -101,9 +101,9 @@ const DeliveryBar = styled.div`
     width: 100%;
     height: 0.6rem;
 
-    border-top-left-radius: 10rem;
-    border-bottom-left-radius: 10rem;
-    border-top-right-radius: 10rem;
-    border-bottom-right-radius: 10rem;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
     background-color: ${({ theme }) => theme.colors.red_300};
 `;
