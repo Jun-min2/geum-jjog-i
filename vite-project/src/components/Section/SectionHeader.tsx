@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { useState } from 'react';
 const SectionHeader = () => {
     const [isDelivery, setIsDelivery] = useState(true);
-    const handleOnClick = () => {
+    const handleOnGeneralClick = () => {
         setIsDelivery(true);
     };
     const handleOnTodayClick = () => {
@@ -11,10 +11,10 @@ const SectionHeader = () => {
     return (
         <>
             <HeadTextLayout>
-                <HeadTextWrapper onClick={handleOnClick} isSelected={isDelivery}>
+                <HeadTextWrapper onClick={handleOnGeneralClick} selected={isDelivery}>
                     일반 배송 ( 2 )
                 </HeadTextWrapper>
-                <HeadTextWrapper onClick={handleOnTodayClick} isSelected={!isDelivery}>
+                <HeadTextWrapper onClick={handleOnTodayClick} selected={!isDelivery}>
                     오늘드림&픽업 ( 0 )
                 </HeadTextWrapper>
             </HeadTextLayout>
@@ -24,7 +24,7 @@ const SectionHeader = () => {
 
 export default SectionHeader;
 
-const HeadTextLayout = styled.div`
+const HeadTextLayout = styled.section`
     width: 100%;
     height: 3.2rem;
 
@@ -32,13 +32,13 @@ const HeadTextLayout = styled.div`
     justify-content: space-between;
 `;
 
-const HeadTextWrapper = styled.button<{ isSelected: boolean }>`
+const HeadTextWrapper = styled.button<{ selected: boolean }>`
     display: flex;
     justify-content: center;
 
     width: 100%;
-    ${({ theme, isSelected }) => (isSelected ? theme.fonts.SubHead1 : theme.fonts.SubHead2)};
-    color: ${({ theme, isSelected }) => (isSelected ? 'black' : theme.colors.gray_500)};
+    ${({ theme, selected }) => (selected ? theme.fonts.SubHead1 : theme.fonts.SubHead2)};
+    color: ${({ theme, selected }) => (selected ? 'black' : theme.colors.gray_500)};
     background-color: white;
-    border-bottom: solid 0.2rem ${({ theme, isSelected }) => (isSelected ? 'black' : theme.colors.gray_200)};
+    border-bottom: solid 0.2rem ${({ theme, selected }) => (selected ? 'black' : theme.colors.gray_200)};
 `;
