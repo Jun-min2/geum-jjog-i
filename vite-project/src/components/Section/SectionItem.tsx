@@ -81,14 +81,13 @@ const ItemImg = styled.img`
     width: 100%;
     height: 100%;
 `;
-const CheckButton = styled.button`
+const CheckButton = styled.div`
     position: absolute;
     top: -0.05rem;
     left: -0.09rem;
     width: 1.6rem;
     height: 1.6rem;
     z-index: 10;
-    background-color: white;
 `;
 const ItemDetails = styled.h3`
     width: 60%;
