@@ -1,9 +1,9 @@
 import styled from 'styled-components';
-import { ITEMDETAILS } from '../../constants/ItemDetails';
 import { IcMinus, IcPlus, IcSmallCheck } from '../../assets/svgs/icons';
 import { useState } from 'react';
+import { ItemProps } from '../../types/item';
 
-const SectionItem = ({ item }) => {
+const SectionItem = ({ item }: { item: ItemProps }) => {
     const [quantity, setQuantity] = useState(1);
     const handleOnDecrease = () => {
         setQuantity(quantity - 1);
@@ -40,7 +40,7 @@ const SectionItem = ({ item }) => {
                     <FastItem>오늘드림</FastItem>
                     <ItemPrice>
                         <ItemCost>{item.itemCost}</ItemCost>
-                        <DiscountPrice>{item.itemDiscountPrice}</DiscountPrice>
+                        <DiscountPrice>{item.itemDiscountPrice}원</DiscountPrice>
                     </ItemPrice>
                 </ItemLayout>
             </MyItem>
